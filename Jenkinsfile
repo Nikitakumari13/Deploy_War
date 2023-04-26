@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-    git 'https://github.com/Nayeem123/Jenkinsfile.git'
+    git 'https://github.com/Nikitakumari13/Deploy_War.git'
   }
   stage('compile-package'){
     // Get maven home path
@@ -12,7 +12,7 @@ node{
   stage('Deploy to Tomcat'){
   
     sshagent(['tomcat-dev']) {
-    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.6.170:/opt/apache-tomcat-9.0.74/webapps'
+    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.7.211:/home/ec2-user/tomcat/webapps'
 }
   }
 }
